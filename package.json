@@ -4,7 +4,9 @@
   "description": "This is a Workshop about Protractor",
   "main": "index.js",
   "scripts": {
-    "test": "protractor dist/protractor/local.config.js"
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc",
+    "test": "npm run build && protractor dist/protractor/local.config.js"
   },
   "repository": {
     "type": "git",
@@ -21,5 +23,11 @@
   "bugs": {
     "url": "https://github.com/Daniela-git/protractor-workshop-2021/issues"
   },
-  "homepage": "https://github.com/Daniela-git/protractor-workshop-2021#readme"
+  "homepage": "https://github.com/Daniela-git/protractor-workshop-2021#readme",
+  "devDependencies": {
+    "@types/jasminewd2": "^2.0.8",
+    "@types/node": "^14.14.22",
+    "protractor": "^7.0.0",
+    "typescript": "^4.1.3"
+  }
 }
