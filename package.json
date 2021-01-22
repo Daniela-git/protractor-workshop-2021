@@ -1,0 +1,25 @@
+{
+  "name": "workshop-protractor",
+  "version": "1.0.0",
+  "description": "This is a Workshop about Protractor",
+  "main": "index.js",
+  "scripts": {
+    "test": "protractor dist/protractor/local.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Daniela-git/protractor-workshop-2021.git"
+  },
+  "keywords": [
+    "ui-testing",
+    "dojo",
+    "practice",
+    "protractor"
+  ],
+  "author": "Daniela Higuita Alcaraz, dhiguitaa@unal.edu.co, https://github.com/Daniela-git",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Daniela-git/protractor-workshop-2021/issues"
+  },
+  "homepage": "https://github.com/Daniela-git/protractor-workshop-2021#readme"
+}
