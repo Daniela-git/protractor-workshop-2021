@@ -30,6 +30,7 @@ describe("Buy a t-shirt", () => {
     //product-list
     await productListPage.goToItem();
 
+    await browser.sleep(2000);
     //add to car
     await productAddedModal.addProduct();
 

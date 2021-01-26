@@ -11,7 +11,7 @@ export const config: Config = {
   SELENIUM_PROMISE_MANAGER: false,
   onPrepare: () => {
     reporter();
-    browser.manage().timeouts().implicitlyWait(2000);
+    browser.manage().timeouts().implicitlyWait(0);
     browser.ignoreSynchronization = true;
   },
 };
