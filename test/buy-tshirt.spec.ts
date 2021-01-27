@@ -26,11 +26,9 @@ describe("Open the browser", () => {
       await menuContentPage.goToTShirtMenu();
       //product-list
       await productListPage.goToItem();
-
       await browser.sleep(2000);
       //add to car
       await productAddedModal.addProduct();
-
       //summary
       await summaryStepPage.nextStep();
     });
