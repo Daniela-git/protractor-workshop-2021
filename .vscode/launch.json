@@ -16,7 +16,7 @@
       "smartStep": true,
       "internalConsoleOptions": "openOnSessionStart",
       "outFiles": [
-          "${workspaceFolder}/dist/**/*.js"
+          "${workspaceFolder}/dist/**/locators.specs.js"
       ]
     },
     {

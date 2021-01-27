@@ -32,7 +32,6 @@ export class PersonalInformation {
     elem: ElementArrayFinder,
     select: string
   ): Promise<void> {
-    console.log(elem);
     await elem
       .filter(async (item) => {
         return await item
@@ -51,6 +50,7 @@ export class PersonalInformation {
     await this.selectRadio(this.profession, data.profession[0]);
     await this.selectRadio(this.tools, data.tools[0]);
     await this.continent.sendKeys(data.continent);
+    await browser.sleep(5000);
     await this.button.click();
   }
 

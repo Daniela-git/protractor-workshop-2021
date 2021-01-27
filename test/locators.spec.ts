@@ -16,7 +16,7 @@ describe("fill form", () => {
       experience: 7,
       profession: ["Automation Tester"],
       tools: ["Selenium Webdriver"],
-      continent: "South America",
+      continent: "Africa",
       commands: [
         "Browser Commands",
         "Navigation Commands",
@@ -25,7 +25,6 @@ describe("fill form", () => {
         "WebElement Commands",
       ],
     });
-
     await expect(personalInformationPage.confirm()).toBe(
       "Selenium - Automation Practice Form"
     );
