@@ -15,9 +15,9 @@ describe("Buy a t-shirt", () => {
   const menuContentPage: MenuContentPage = new MenuContentPage();
   const productListPage: ProductListPage = new ProductListPage();
   const productAddedModal: ProductAddedModal = new ProductAddedModal();
-  const addressStepPage: AddressStepPage = new AddressStepPage();
   const summaryStepPage: SummaryStepPage = new SummaryStepPage();
   const signInStep: SignInStep = new SignInStep();
+  const addressStepPage: AddressStepPage = new AddressStepPage();
   const shippingStep: ShippingStep = new ShippingStep();
   const paymentStepPage: PaymentStepPage = new PaymentStepPage();
   const bankPaymentPage: BankPaymentPage = new BankPaymentPage();
@@ -45,7 +45,7 @@ describe("Buy a t-shirt", () => {
     await shippingStep.nextStep();
     //payment step
     await paymentStepPage.selectPay();
-    //bank noseque
+    //bank
     await bankPaymentPage.confirmOrder();
 
     await expect(orderSummaryPage.result()).toBe(

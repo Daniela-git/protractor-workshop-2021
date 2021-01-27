@@ -5,8 +5,8 @@ export class ShippingStep {
   private shipping: ElementFinder;
 
   constructor() {
-    this.terms = $("#cgv");
-    this.shipping = $("#form > p > button > span");
+    this.terms = $("input[name='cgv']");
+    this.shipping = $("button[name='processCarrier']");
   }
 
   public async agreeTerms(): Promise<void> {
