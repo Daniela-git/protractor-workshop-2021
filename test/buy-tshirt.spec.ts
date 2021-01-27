@@ -13,7 +13,7 @@ import {
 } from "../src/page";
 
 describe("Open the browser", () => {
-  beforeAll(async () => {
+  beforeEach(async () => {
     await browser.get("http://automationpractice.com/");
   });
 
@@ -22,16 +22,12 @@ describe("Open the browser", () => {
     const productListPage: ProductListPage = new ProductListPage();
     const productAddedModal: ProductAddedModal = new ProductAddedModal();
     const summaryStepPage: SummaryStepPage = new SummaryStepPage();
-    beforeAll(async () => {
+    beforeEach(async () => {
       await menuContentPage.goToTShirtMenu();
       //product-list
-      await productListPage.goToItem();
-<<<<<<< HEAD
-
-=======
+      await productListPage.selectProduct("Faded Short Sleeve T-shirts");
       // await browser.sleep(2000);
 
->>>>>>> 803e4d9... using ExpectedConditions
       //add to car
       await productAddedModal.addProduct();
       //summary
@@ -40,7 +36,7 @@ describe("Open the browser", () => {
 
     describe("try to ligin", () => {
       const signInStep: SignInStep = new SignInStep();
-      beforeAll(async () => {
+      beforeEach(async () => {
         //sing in
         await signInStep.completeForm();
       });
@@ -48,7 +44,7 @@ describe("Open the browser", () => {
       describe("select the default address", () => {
         const addressStepPage: AddressStepPage = new AddressStepPage();
         const shippingStep: ShippingStep = new ShippingStep();
-        beforeAll(async () => {
+        beforeEach(async () => {
           //address
           await addressStepPage.selectAddress();
           //shiping
