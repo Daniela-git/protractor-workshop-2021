@@ -10,6 +10,7 @@ export const config: Config = {
   },
   capabilities: {
     browserName: "chrome",
+    shardTestFiles: true,
     chromeOptions: {
       args: [
         "--disable-popup-blocking",

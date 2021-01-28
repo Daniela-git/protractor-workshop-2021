@@ -28,6 +28,7 @@ export class ProductListPage {
       "a[title='Add to cart']"
     );
     await browser.wait(ExpectedConditions.elementToBeClickable(product), 5000);
+
     await product.click();
   }
 }
