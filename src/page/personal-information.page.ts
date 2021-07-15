@@ -5,8 +5,8 @@ import {
   ElementArrayFinder,
   ExpectedConditions,
   browser,
-} from "protractor";
-import { personalInfo } from "../interfaces/personalInfo";
+} from 'protractor';
+import { PersonalInfo } from '../interfaces/personalInfo';
 export class PersonalInformation {
   private firstName: ElementFinder;
   private lastName: ElementFinder;
@@ -18,15 +18,15 @@ export class PersonalInformation {
   private button: ElementFinder;
   private title: ElementFinder;
   constructor() {
-    this.firstName = element(by.name("firstname"));
-    this.lastName = element(by.name("lastname"));
-    this.sex = element.all(by.name("sex"));
-    this.experience = element.all(by.name("exp"));
-    this.profession = element.all(by.name("profession"));
-    this.tools = element.all(by.name("tool"));
-    this.continent = element(by.name("continents"));
-    this.button = element(by.name("submit"));
-    this.title = element(by.css("h1"));
+    this.firstName = element(by.name('firstname'));
+    this.lastName = element(by.name('lastname'));
+    this.sex = element.all(by.name('sex'));
+    this.experience = element.all(by.name('exp'));
+    this.profession = element.all(by.name('profession'));
+    this.tools = element.all(by.name('tool'));
+    this.continent = element(by.name('continents'));
+    this.button = element(by.name('submit'));
+    this.title = element(by.css('h1'));
   }
   private async selectRadio(
     elem: ElementArrayFinder,
@@ -35,14 +35,14 @@ export class PersonalInformation {
     await elem
       .filter(async (item) => {
         return await item
-          .getAttribute("value")
+          .getAttribute('value')
           .then((txt: string) => txt === select);
       })
       .first()
       .click();
   }
 
-  public async fillForm(data: personalInfo): Promise<void> {
+  public async fillForm(data: PersonalInfo): Promise<void> {
     await this.firstName.sendKeys(data.firstName);
     await this.lastName.sendKeys(data.lastName);
     await this.selectRadio(this.sex, data.sex);
