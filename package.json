@@ -11,7 +11,6 @@
     "test:saucelabs": "npm run build && protractor dist/protractor/saucelabs.config.js",
     "webdriver:update": "webdriver-manager update --gecko false",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
-
   },
   "repository": {
     "type": "git",
