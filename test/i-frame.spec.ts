@@ -5,10 +5,10 @@ describe(" let's chage the iframe", () => {
   const iframe: Iframe = new Iframe();
   beforeEach(async () => {
     await browser.get('https://demoqa.com/frames');
+    // await browser.manage().window().maximize();
   });
   it('the height must change', async () => {
-    iframe.setFormFrameHeight(10);
-    console.log(iframe.getFormFrameHeight());
-    await expect(iframe.getFormFrameHeight()).toBe(10);
+    await iframe.setFormFrameHeight(30);
+    expect(await iframe.getFormFrameHeight()).toBe('30');
   });
 });

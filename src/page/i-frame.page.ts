@@ -1,4 +1,4 @@
-import { $, browser, ElementFinder, promise } from 'protractor';
+import { $, browser, ElementFinder } from 'protractor';
 
 export class Iframe {
   private iframe1: ElementFinder;
@@ -6,13 +6,16 @@ export class Iframe {
   constructor() {
     this.iframe1 = $('#frame1');
   }
-  public setFormFrameHeight(height: number): Promise<void> {
-    return browser.executeScript(
+  public async setFormFrameHeight(height: number): Promise<void> {
+    return await browser.executeScript(
       `arguments[0].height = ${height};`,
       this.iframe1
     );
   }
-  public getFormFrameHeight(): promise.Promise<void> {
-    return browser.executeScript('arguments[0].height', this.iframe1);
+  public async getFormFrameHeight(): Promise<string> {
+    return await browser.executeScript(
+      'return arguments[0].height',
+      this.iframe1
+    );
   }
 }
