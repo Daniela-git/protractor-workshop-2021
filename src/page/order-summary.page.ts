@@ -1,10 +1,10 @@
-import { $, ElementFinder } from "protractor";
+import { $, ElementFinder } from 'protractor';
 
 export class OrderSummaryPage {
   private orderSummary: ElementFinder;
 
   constructor() {
-    this.orderSummary = $("#center_column .cheque-indent > strong");
+    this.orderSummary = $('#center_column .cheque-indent > strong');
   }
 
   public async result(): Promise<string> {

@@ -4,19 +4,19 @@ import {
   ExpectedConditions,
   browser,
   ElementArrayFinder,
-} from "protractor";
+} from 'protractor';
 
 export class ProductListPage {
   private products: ElementArrayFinder;
 
   constructor() {
-    this.products = $$(".product-container");
+    this.products = $$('.product-container');
   }
   private async findByProduct(product: string): Promise<ElementFinder> {
     return this.products
       .filter(async (item) => {
         return await item
-          .$(".product-name")
+          .$('.product-name')
           .getText()
           .then(async (txt: string) => await txt.includes(product));
       })
