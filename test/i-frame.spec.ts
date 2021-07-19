@@ -16,9 +16,14 @@ describe(" let's play with the iframe", () => {
 
   describe(" let's change between the page and iframe", () => {
     describe(' check the title', () => {
-      it('must have the Frame title', async () => {
+      it('must have the Frames title', async () => {
         const title: string = await iframe.getTitle();
-        expect(title).toBe('Frame');
+        expect(title).toBe('Frames');
+      });
+    });
+    describe('change to the frame', () => {
+      it('must have a title', async () => {
+        expect(await iframe.switchToFrame()).toBe('This is a sample page');
       });
     });
   });

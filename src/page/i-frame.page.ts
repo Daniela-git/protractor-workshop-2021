@@ -3,7 +3,6 @@ import { $, browser, ElementFinder } from 'protractor';
 export class Iframe {
   private iframe1: ElementFinder;
   private title: ElementFinder;
-  private iframeTitle: ElementFinder;
 
   constructor() {
     this.iframe1 = $('#frame1');
@@ -25,7 +24,9 @@ export class Iframe {
     return await this.title.getText();
   }
 
-  public async switchToFrame(): Promise<void> {
+  public async switchToFrame(): Promise<string> {
     await browser.switchTo().frame(this.iframe1.getWebElement());
+    const titulo: ElementFinder = await browser.$('h1');
+    return await titulo.getText();
   }
 }
