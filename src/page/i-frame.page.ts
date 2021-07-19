@@ -24,8 +24,11 @@ export class Iframe {
     return await this.title.getText();
   }
 
-  public async switchToFrame(): Promise<string> {
+  public async switchToFrame(): Promise<void> {
     await browser.switchTo().frame(this.iframe1.getWebElement());
+  }
+
+  public async getFrameTitle(): Promise<string> {
     const titulo: ElementFinder = await browser.$('h1');
     return await titulo.getText();
   }
