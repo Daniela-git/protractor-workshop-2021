@@ -27,5 +27,12 @@ describe(" let's play with the iframe", () => {
         expect(await iframe.getFrameTitle()).toBe('This is a sample page');
       });
     });
+    describe('change to the window', () => {
+      it('must have a title', async () => {
+        await iframe.switchToFrame();
+        await iframe.switchToMainPage();
+        expect(await iframe.getTitle()).toBe('Frames');
+      });
+    });
   });
 });

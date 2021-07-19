@@ -32,4 +32,8 @@ export class Iframe {
     const titulo: ElementFinder = await browser.$('h1');
     return await titulo.getText();
   }
+
+  public async switchToMainPage(): Promise<void> {
+    await browser.switchTo().defaultContent();
+  }
 }
