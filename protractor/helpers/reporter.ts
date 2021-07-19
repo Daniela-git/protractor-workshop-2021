@@ -1,7 +1,7 @@
-import { SpecReporter, StacktraceOption } from "jasmine-spec-reporter";
+import { SpecReporter, StacktraceOption } from 'jasmine-spec-reporter';
 // import { AwesomeReport } from "jasmine-awesome-report";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { AwesomeReport } = require("jasmine-awesome-report");
+const { AwesomeReport } = require('jasmine-awesome-report');
 
 export const reporter = () => {
   jasmine.getEnv().addReporter(
@@ -12,8 +12,8 @@ export const reporter = () => {
     })
   );
   const config = {
-    fullPath: "awesome-report",
-    fileName: "report",
+    fullPath: 'awesome-report',
+    fileName: 'report',
     merge: true,
   };
   jasmine.getEnv().addReporter(AwesomeReport.getReport(config));
