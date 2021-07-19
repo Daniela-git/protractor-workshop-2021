@@ -7,4 +7,5 @@ export interface PersonalInfo {
   tools: string[];
   continent: string;
   commands: string[];
+  file: string;
 }
