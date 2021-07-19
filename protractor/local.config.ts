@@ -1,21 +1,21 @@
-import { browser, Config } from "protractor";
-import { reporter } from "./helpers/reporter";
+import { browser, Config } from 'protractor';
+import { reporter } from './helpers/reporter';
 
 export const config: Config = {
-  framework: "jasmine",
-  specs: ["../test/**/*.spec.js"],
+  framework: 'jasmine',
+  specs: ['../test/**/*.spec.js'],
   getPageTimeout: 30000,
   jasmineNodeOpts: {
     defaultTimeoutInterval: 120000,
   },
   capabilities: {
-    browserName: "chrome",
+    browserName: 'chrome',
     shardTestFiles: true,
     chromeOptions: {
       args: [
-        "--disable-popup-blocking",
-        "--no-default-browser-check",
-        "--window-size=800,600",
+        '--disable-popup-blocking',
+        '--no-default-browser-check',
+        '--window-size=800,600',
       ],
       prefs: { credentials_enable_service: false },
     },

@@ -1,4 +1,4 @@
-import { browser } from "protractor";
+import { browser } from 'protractor';
 import {
   MenuContentPage,
   ProductListPage,
@@ -10,59 +10,59 @@ import {
   PaymentStepPage,
   BankPaymentPage,
   OrderSummaryPage,
-} from "../src/page";
+} from '../src/page';
 
-describe("Open the browser", () => {
+describe('Open the browser', () => {
   beforeEach(async () => {
-    await browser.get("http://automationpractice.com/");
+    await browser.get('http://automationpractice.com/');
   });
 
-  describe("I try to buy a t-shirt", () => {
+  describe('I try to buy a t-shirt', () => {
     const menuContentPage: MenuContentPage = new MenuContentPage();
     const productListPage: ProductListPage = new ProductListPage();
     const productAddedModal: ProductAddedModal = new ProductAddedModal();
     const summaryStepPage: SummaryStepPage = new SummaryStepPage();
     beforeEach(async () => {
       await menuContentPage.goToTShirtMenu();
-      //product-list
-      await productListPage.selectProduct("Faded Short Sleeve T-shirts");
+      // product-list
+      await productListPage.selectProduct('Faded Short Sleeve T-shirts');
 
-      //add to car
+      // add to car
       await productAddedModal.addProduct();
-      //summary
+      // summary
       await summaryStepPage.nextStep();
     });
 
-    describe("try to ligin", () => {
+    describe('try to ligin', () => {
       const signInStep: SignInStep = new SignInStep();
       beforeEach(async () => {
-        //sing in
+        // sing in
         await signInStep.completeForm();
       });
 
-      describe("select the default address", () => {
+      describe('select the default address', () => {
         const addressStepPage: AddressStepPage = new AddressStepPage();
         const shippingStep: ShippingStep = new ShippingStep();
         beforeEach(async () => {
-          //address
+          // address
           await addressStepPage.selectAddress();
-          //shiping
+          // shiping
           await shippingStep.agreeTerms();
           await shippingStep.nextStep();
         });
 
-        describe("payment step", () => {
+        describe('payment step', () => {
           const paymentStepPage: PaymentStepPage = new PaymentStepPage();
           const bankPaymentPage: BankPaymentPage = new BankPaymentPage();
           const orderSummaryPage: OrderSummaryPage = new OrderSummaryPage();
-          it("then should be bought a t-shirt", async () => {
-            //payment step
+          it('then should be bought a t-shirt', async () => {
+            // payment step
             await paymentStepPage.selectPay();
-            //bank
+            // bank
             await bankPaymentPage.confirmOrder();
 
             await expect(orderSummaryPage.result()).toBe(
-              "Your order on My Store is complete."
+              'Your order on My Store is complete.'
             );
           });
         });
