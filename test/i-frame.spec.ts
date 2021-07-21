@@ -1,8 +1,9 @@
 import { browser } from 'protractor';
-import { Iframe } from '../src/page';
+import { Iframe, FrameMain } from '../src/page';
 
 describe(" let's play with the iframe", () => {
   const iframe: Iframe = new Iframe();
+  const mainPage: FrameMain = new FrameMain();
   beforeEach(async () => {
     await browser.get('https://demoqa.com/frames');
   });
@@ -15,23 +16,20 @@ describe(" let's play with the iframe", () => {
   });
 
   describe(" let's change between the page and iframe", () => {
-    describe(' check the title', () => {
-      it('must have the Frames title', async () => {
-        const title: string = await iframe.getTitle();
+    describe(' check the main page title', () => {
+      it('must have the "Frames" title', async () => {
+        const title: string = await mainPage.getTitle();
         expect(title).toBe('Frames');
       });
-    });
-    describe('change to the frame', () => {
-      it('must have a title', async () => {
-        await iframe.switchToFrame();
-        expect(await iframe.getFrameTitle()).toBe('This is a sample page');
-      });
-    });
-    describe('change to the window', () => {
-      it('must have a title', async () => {
-        await iframe.switchToFrame();
-        await iframe.switchToMainPage();
-        expect(await iframe.getTitle()).toBe('Frames');
+      describe('change to the frame', () => {
+        it('must have a title', async () => {
+          await iframe.switchToFrame();
+          expect(await iframe.getFrameTitle()).toBe('This is a sample page');
+        });
+        it('should go back to the main', async () => {
+          await mainPage.switchToMainPage();
+          expect(await mainPage.getTitle()).toBe('Frames');
+        });
       });
     });
   });
