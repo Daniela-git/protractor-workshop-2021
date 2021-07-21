@@ -1,13 +1,15 @@
-import { $, browser, ElementFinder } from 'protractor';
-
+import { $, ElementFinder } from 'protractor';
+import { DownloadService } from '../service/download.service';
 export class DownloadFile {
   private downloadLink: ElementFinder;
+  private downloadService: DownloadService;
   constructor() {
     this.downloadLink = $('#downloadButton');
+    this.downloadService = new DownloadService();
   }
 
   public async download(): Promise<void> {
     const link: string = await this.downloadLink.getAttribute('href');
-    console.log(link);
+    this.downloadService.downloadFile(link, 'test.jpeg');
   }
 }
