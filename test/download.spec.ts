@@ -9,5 +9,6 @@ describe('let´s download a file', () => {
 
   it('it should be download', async () => {
     await downloadFile.download();
+    expect(downloadFile.read()).toBeGreaterThanOrEqual(4000);
   });
 });

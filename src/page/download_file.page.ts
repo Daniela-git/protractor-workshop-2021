@@ -12,4 +12,8 @@ export class DownloadFile {
     const link: string = await this.downloadLink.getAttribute('href');
     this.downloadService.downloadFile(link, 'test.jpeg');
   }
+
+  public read(): number {
+    return this.downloadService.readFileFromTemp('test.jpeg').byteLength;
+  }
 }

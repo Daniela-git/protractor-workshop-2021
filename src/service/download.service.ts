@@ -1,4 +1,4 @@
-import { writeFileSync } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
 import { resolve } from 'path';
 export class DownloadService {
   private temp: string;
@@ -10,5 +10,9 @@ export class DownloadService {
   public async downloadFile(link: string, filename: string): Promise<void> {
     const linkToUse: string = link.replace(/^data:image\/jpeg;base64,/, '');
     writeFileSync(resolve(this.temp, filename), linkToUse, 'base64');
+  }
+
+  public readFileFromTemp(filename: string): Buffer {
+    return readFileSync(resolve(this.temp, filename));
   }
 }
