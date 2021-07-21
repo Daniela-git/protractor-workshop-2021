@@ -3,7 +3,7 @@ import { reporter } from './helpers/reporter';
 
 export const config: Config = {
   framework: 'jasmine',
-  specs: ['../test/**/i-frame.spec.js'],
+  specs: ['../test/**/*.js'],
   getPageTimeout: 30000,
   jasmineNodeOpts: {
     defaultTimeoutInterval: 120000,
