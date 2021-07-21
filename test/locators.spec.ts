@@ -24,6 +24,7 @@ describe('fill form', () => {
         'WebElement Commands',
       ],
       file: 'C:\\Users\\daniela.higuitaa\\Desktop\\protractor-workshop-2021\\resources\\git.jpeg',
+      downloadFile: true,
     });
   });
   it('then should have a photo', async () => {
