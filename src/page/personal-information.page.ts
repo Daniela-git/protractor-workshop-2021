@@ -7,6 +7,7 @@ import {
   browser,
 } from 'protractor';
 import { PersonalInfo } from '../interfaces/personalInfo';
+import { resolve } from 'path';
 export class PersonalInformation {
   private firstName: ElementFinder;
   private lastName: ElementFinder;
@@ -54,7 +55,7 @@ export class PersonalInformation {
     await this.selectRadio(this.sex, data.sex);
     await this.selectRadio(this.experience, String(data.experience));
     await this.selectRadio(this.profession, data.profession[0]);
-    await this.profile.sendKeys(data.file);
+    await this.profile.sendKeys(resolve(data.file));
     await this.selectRadio(this.tools, data.tools[0]);
     await this.continent.sendKeys(data.continent);
   }

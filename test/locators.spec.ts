@@ -23,7 +23,7 @@ describe('fill form', () => {
         'Wait Commands',
         'WebElement Commands',
       ],
-      file: 'C:\\Users\\daniela.higuitaa\\Desktop\\protractor-workshop-2021\\resources\\git.jpeg',
+      file: 'resources/git.jpeg',
     });
   });
   it('then should have a photo', async () => {
