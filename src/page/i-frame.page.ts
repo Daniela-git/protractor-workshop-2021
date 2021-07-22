@@ -2,11 +2,9 @@ import { $, browser, ElementFinder } from 'protractor';
 
 export class Iframe {
   private iframe1: ElementFinder;
-  private title: ElementFinder;
 
   constructor() {
     this.iframe1 = $('#frame1');
-    this.title = $('.main-header');
   }
   public async setFormFrameHeight(height: number): Promise<void> {
     return await browser.executeScript(
@@ -20,9 +18,6 @@ export class Iframe {
       this.iframe1
     );
   }
-  public async getTitle(): Promise<string> {
-    return await this.title.getText();
-  }
 
   public async switchToFrame(): Promise<void> {
     await browser.switchTo().frame(this.iframe1.getWebElement());
@@ -31,9 +26,5 @@ export class Iframe {
   public async getFrameTitle(): Promise<string> {
     const titulo: ElementFinder = await browser.$('h1');
     return await titulo.getText();
-  }
-
-  public async switchToMainPage(): Promise<void> {
-    await browser.switchTo().defaultContent();
   }
 }
