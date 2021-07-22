@@ -23,7 +23,7 @@ describe('fill form', () => {
         'Wait Commands',
         'WebElement Commands',
       ],
-      file: 'C:\\Users\\daniela.higuitaa\\Desktop\\protractor-workshop-2021\\resources\\git.jpeg',
+      file: 'resources/git.jpeg',
       downloadFile: true,
     });
   });
@@ -31,7 +31,7 @@ describe('fill form', () => {
     const files: number = await personalInformationPage.getFiles();
     expect(files).toBe(1);
   });
-  describe('fill form with file', () => {
+  describe('submit the form', () => {
     it('then should be registered', async () => {
       await personalInformationPage.submit();
       await expect(personalInformationPage.confirm()).toBe(
