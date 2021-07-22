@@ -8,7 +8,7 @@ export const config: Config = {
   jasmineNodeOpts: {
     defaultTimeoutInterval: 120000,
   },
-  saucerUser: process.env.SAUCE_USERNAME,
+  sauceUser: process.env.SAUCE_USERNAME,
   sauceKey: process.env.SAUCE_ACCESS_KEY,
   capabilities: {
     name: 'UI Workshop',
