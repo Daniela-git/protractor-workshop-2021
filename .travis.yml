@@ -3,12 +3,12 @@ addons:
   chrome: stable
 language: node_js
 install:
-  - npm ci
-  - npm run webdriver:update
+- npm ci
+- npm run webdriver:update
 cache:
   directories:
-<<<<<<< HEAD
-    - 'node_modules'
-=======
-    - "node_modules"
->>>>>>> 02efc2a (add the launch.json to make debug)
+  - node_modules
+env:
+  global:
+  - secure: tx/cO3sN4S3CUVAKANT5B8kvjMntEruUXOv7+kljISqg9EXCjsWgzbjHDPRGGiJtJd9M+MZ2Me6aDoCrd/vJRfIYwjjQt/nSzLDY/Ut60aIzsnHiJc0bUj92uLL9hTrljCUiNKK9E33KzXt9jln6c22iGdM00fDgj0UU1pLTe8Ry4aFjKQ/QgKYCHwomdKuO2DhY8yZkCg60KTFBIQbgi3QEOCWzpFvPLqkwHCR2OWFtjeFF8JFqIdXyiYfcMls/Y9iMUMf5oq9znJwC2+oUwg51JnUd3Dv4Z9Z3gvX0Lr3p5jWUee7gptAMmiPqADBZ6LFO7arbG4b+hD7Q/XgZP8hlxabLkpaWKyShOe/51JnFLHJQb+fyMYfKLPCtlEC6BGpVCyMtsotAiUHiP8mteDjx5hopB5SWrSUryx0VIsguDY/TvR3lYxS2IzjC2uXtd47dCzdOvQdn5TK0miRqF3lNs/wiEU6n+Vyu8w0NB2Cklo/4QcWAFSI+rg+l1aVsZWhU/Aj+3rxuAylroRMqI0uSdd4prphrtpNpeNrtFzkllHiXKELpXNtgjGQg9QhHkL+Rqex+i/OYk5irn367BUfQ6tsAHkkQUx//J9pMsryOROxTyznBiVYzF66Vx8vjcYVpZ+8zlP/s79lQFwjr+wd66id4UjyFaDh+lLiCuGc=
+  - secure: PE37K+75B970IWcgPUJX/8Brx66hdtYLNbaxjtjUQMoa2DZSoJ4YRRguZGleEkMOfc0eKZsPszwIzxTNKTNAEvIqwSVvq+ohabkjWpdwD8FDUC62jqhFaMVLu/R4Tl68i1kIRe09M/5V0tVMBN+aKzYE3Nxa0ozDUMOw8lfcK0PY/LWiEIVF3KPfCvohsvw2E996ZQLDaRTQCnsOWjnh16MRoVAP0V4SAE0m3lkRFemSJtEg7De++4z3PGIzlgyPqwULIifGvo+zijXC6aZkS0/IOWGXpuaQa/034UrKfktMoS4CoFie0pGExD1NOYPra6ew4cvLdOAPLl+TfneN//GWO+CGZcYIBM/AO/I15rBPZ21a3/HMx/D/6BfJrsp8L7Ynmm3gs8FKWUofab3wgBtjXxaezBA0SwxSDlAWFG3X0xWr2makalySbS1r9MVCstQXU77rhtjdNxB2y6lDWWQkYGJ+bR2O0oAhwkbX099Kp6tkMfJmCMl6sU4+nT+sXjKM1UvdPx2E+JtYJ6nEJWq2Ka0FJS1l80J0NdgcSRHhms9eTHK3qRsFIra1pZLpJMh1g6WwEaTshHCJkLNrM1zJH1cf1OvVOaOwobUVp+Q0a26qoE0oeO7PepXfKEvPAVK4zA4jSWe0dPyDB6tQkEkf1jKcr+1F07kiikp47Yo=
