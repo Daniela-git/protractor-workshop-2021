@@ -18,4 +18,13 @@ export class Iframe {
       this.iframe1
     );
   }
+
+  public async switchToFrame(): Promise<void> {
+    await browser.switchTo().frame(this.iframe1.getWebElement());
+  }
+
+  public async getFrameTitle(): Promise<string> {
+    const titulo: ElementFinder = await browser.$('h1');
+    return await titulo.getText();
+  }
 }
