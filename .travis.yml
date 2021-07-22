@@ -7,8 +7,4 @@ install:
   - npm run webdriver:update
 cache:
   directories:
-<<<<<<< HEAD
     - 'node_modules'
-=======
-    - "node_modules"
->>>>>>> 02efc2a (add the launch.json to make debug)
