@@ -7,6 +7,7 @@ import {
   browser,
 } from 'protractor';
 import { PersonalInfo } from '../interfaces/personalInfo';
+import * as remote from 'selenium-webdriver/remote';
 import { resolve } from 'path';
 export class PersonalInformation {
   private firstName: ElementFinder;
@@ -51,13 +52,20 @@ export class PersonalInformation {
     await alert.accept();
   }
 
+  private async upload(file: string): Promise<void> {
+    const absolutePath: string = resolve(process.cwd(), file);
+    await browser.setFileDetector(new remote.FileDetector());
+    await this.profile.sendKeys(absolutePath);
+    await browser.setFileDetector(undefined);
+  }
+
   public async fillForm(data: PersonalInfo): Promise<void> {
     await this.firstName.sendKeys(data.firstName);
     await this.lastName.sendKeys(data.lastName);
     await this.selectRadio(this.sex, data.sex);
     await this.selectRadio(this.experience, String(data.experience));
     await this.selectRadio(this.profession, data.profession[0]);
-    await this.profile.sendKeys(resolve(data.file));
+    await this.upload(data.file);
     await this.selectRadio(this.tools, data.tools[0]);
     await this.continent.sendKeys(data.continent);
   }
