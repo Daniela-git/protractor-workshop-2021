@@ -68,11 +68,8 @@ export class PersonalInformation {
     return await this.title.getText();
   }
 
-  public async getFiles(): Promise<number> {
-    const numberOfFiles: number = await browser.executeScript(
-      ' return arguments[0].files.length;',
-      this.profile
-    );
-    return numberOfFiles;
+  public async getFiles(): Promise<string> {
+    const name: string = await this.profile.getAttribute('value');
+    return name.replace('C:\\fakepath\\', '');
   }
 }
