@@ -4,6 +4,7 @@ import { PersonalInformation } from '../src/page';
 describe('fill form', () => {
   const personalInformationPage: PersonalInformation =
     new PersonalInformation();
+  let files: number;
   beforeEach(async () => {
     await browser.get(
       'https://www.tutorialspoint.com/selenium/selenium_automation_practice.htm '
@@ -25,17 +26,17 @@ describe('fill form', () => {
       ],
       file: 'resources/git.jpeg',
     });
+    files = await personalInformationPage.getFiles();
+    await personalInformationPage.submit();
   });
+
   it('then should have a photo', async () => {
-    const files: number = await personalInformationPage.getFiles();
     expect(files).toBe(1);
   });
-  describe('submit the form', () => {
-    it('then should be registered', async () => {
-      await personalInformationPage.submit();
-      await expect(personalInformationPage.confirm()).toBe(
-        'Selenium - Automation Practice Form'
-      );
-    });
+
+  it('then should be registered', async () => {
+    expect(await personalInformationPage.confirm()).toBe(
+      'Selenium - Automation Practice Form'
+    );
   });
 });

@@ -46,8 +46,7 @@ export class PersonalInformation {
   }
   private async okAlert(): Promise<void> {
     await browser.wait(ExpectedConditions.alertIsPresent(), 10000);
-    const alert = await browser.switchTo().alert();
-    await alert.accept();
+    await browser.switchTo().alert().accept();
   }
   public async fillForm(data: PersonalInfo): Promise<void> {
     await this.firstName.sendKeys(data.firstName);
@@ -62,10 +61,10 @@ export class PersonalInformation {
 
   public async submit(): Promise<void> {
     await this.button.click();
+    await this.okAlert();
   }
 
   public async confirm(): Promise<string> {
-    await this.okAlert();
     return await this.title.getText();
   }
 
