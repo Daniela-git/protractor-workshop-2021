@@ -7,6 +7,7 @@ import {
   browser,
 } from 'protractor';
 import { PersonalInfo } from '../interfaces/personalInfo';
+import { resolve } from 'path';
 export class PersonalInformation {
   private firstName: ElementFinder;
   private lastName: ElementFinder;
@@ -16,6 +17,7 @@ export class PersonalInformation {
   private tools: ElementArrayFinder;
   private continent: ElementFinder;
   private button: ElementFinder;
+  private profile: ElementFinder;
   private title: ElementFinder;
   constructor() {
     this.firstName = element(by.name('firstname'));
@@ -23,6 +25,7 @@ export class PersonalInformation {
     this.sex = element.all(by.name('sex'));
     this.experience = element.all(by.name('exp'));
     this.profession = element.all(by.name('profession'));
+    this.profile = element(by.name('photo'));
     this.tools = element.all(by.name('tool'));
     this.continent = element(by.name('continents'));
     this.button = element(by.name('submit'));
@@ -41,23 +44,32 @@ export class PersonalInformation {
       .first()
       .click();
   }
-
+  private async okAlert(): Promise<void> {
+    await browser.wait(ExpectedConditions.alertIsPresent(), 10000);
+    await browser.switchTo().alert().accept();
+  }
   public async fillForm(data: PersonalInfo): Promise<void> {
     await this.firstName.sendKeys(data.firstName);
     await this.lastName.sendKeys(data.lastName);
     await this.selectRadio(this.sex, data.sex);
     await this.selectRadio(this.experience, String(data.experience));
     await this.selectRadio(this.profession, data.profession[0]);
+    await this.profile.sendKeys(resolve(data.file));
     await this.selectRadio(this.tools, data.tools[0]);
     await this.continent.sendKeys(data.continent);
-    await browser.sleep(5000);
+  }
+
+  public async submit(): Promise<void> {
     await this.button.click();
+    await this.okAlert();
   }
 
   public async confirm(): Promise<string> {
-    await browser.wait(ExpectedConditions.alertIsPresent(), 10000);
-    const alert = await browser.switchTo().alert();
-    await alert.accept();
     return await this.title.getText();
+  }
+
+  public async getFiles(): Promise<string> {
+    const name: string = await this.profile.getAttribute('value');
+    return name.replace('C:\\fakepath\\', '');
   }
 }

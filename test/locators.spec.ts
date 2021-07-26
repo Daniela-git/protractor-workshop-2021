@@ -2,13 +2,13 @@ import { browser } from 'protractor';
 import { PersonalInformation } from '../src/page';
 
 describe('fill form', () => {
-  const personalInformationPage: PersonalInformation = new PersonalInformation();
-
-  it('then should be registered', async () => {
+  const personalInformationPage: PersonalInformation =
+    new PersonalInformation();
+  let file: string;
+  beforeEach(async () => {
     await browser.get(
       'https://www.tutorialspoint.com/selenium/selenium_automation_practice.htm '
     );
-
     await personalInformationPage.fillForm({
       firstName: 'Alejandro',
       lastName: 'Perdomo',
@@ -24,8 +24,18 @@ describe('fill form', () => {
         'Wait Commands',
         'WebElement Commands',
       ],
+      file: 'resources/git.jpeg',
     });
-    await expect(personalInformationPage.confirm()).toBe(
+    file = await personalInformationPage.getFiles();
+    await personalInformationPage.submit();
+  });
+
+  it('then should have a photo', async () => {
+    expect(file).toBe('git.jpeg');
+  });
+
+  it('then should be registered', async () => {
+    expect(await personalInformationPage.confirm()).toBe(
       'Selenium - Automation Practice Form'
     );
   });
