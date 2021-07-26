@@ -7,6 +7,7 @@ import {
   browser,
 } from 'protractor';
 import { PersonalInfo } from '../interfaces/personalInfo';
+import { resolve } from 'path';
 export class PersonalInformation {
   private firstName: ElementFinder;
   private lastName: ElementFinder;
@@ -43,38 +44,32 @@ export class PersonalInformation {
       .first()
       .click();
   }
-
   private async okAlert(): Promise<void> {
     await browser.wait(ExpectedConditions.alertIsPresent(), 10000);
-    const alert = await browser.switchTo().alert();
-    await alert.accept();
+    await browser.switchTo().alert().accept();
   }
-
   public async fillForm(data: PersonalInfo): Promise<void> {
     await this.firstName.sendKeys(data.firstName);
     await this.lastName.sendKeys(data.lastName);
     await this.selectRadio(this.sex, data.sex);
     await this.selectRadio(this.experience, String(data.experience));
     await this.selectRadio(this.profession, data.profession[0]);
-    await this.profile.sendKeys(data.file);
+    await this.profile.sendKeys(resolve(data.file));
     await this.selectRadio(this.tools, data.tools[0]);
     await this.continent.sendKeys(data.continent);
   }
 
   public async submit(): Promise<void> {
     await this.button.click();
+    await this.okAlert();
   }
 
   public async confirm(): Promise<string> {
-    await this.okAlert();
     return await this.title.getText();
   }
 
-  public async getFiles(): Promise<number> {
-    const numberOfFiles: number = await browser.executeScript(
-      ' return arguments[0].files.length;',
-      this.profile
-    );
-    return numberOfFiles;
+  public async getFiles(): Promise<string> {
+    const name: string = await this.profile.getAttribute('value');
+    return name.replace('C:\\fakepath\\', '');
   }
 }

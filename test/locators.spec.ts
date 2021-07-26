@@ -4,6 +4,7 @@ import { PersonalInformation } from '../src/page';
 describe('fill form', () => {
   const personalInformationPage: PersonalInformation =
     new PersonalInformation();
+  let file: string;
   beforeEach(async () => {
     await browser.get(
       'https://www.tutorialspoint.com/selenium/selenium_automation_practice.htm '
@@ -23,20 +24,20 @@ describe('fill form', () => {
         'Wait Commands',
         'WebElement Commands',
       ],
-      file: 'C:\\Users\\daniela.higuitaa\\Desktop\\protractor-workshop-2021\\resources\\git.jpeg',
+      file: 'resources/git.jpeg',
       downloadFile: true,
     });
+    file = await personalInformationPage.getFiles();
+    await personalInformationPage.submit();
   });
+
   it('then should have a photo', async () => {
-    const files: number = await personalInformationPage.getFiles();
-    expect(files).toBe(1);
+    expect(file).toBe('git.jpeg');
   });
-  describe('fill form with file', () => {
-    it('then should be registered', async () => {
-      await personalInformationPage.submit();
-      await expect(personalInformationPage.confirm()).toBe(
-        'Selenium - Automation Practice Form'
-      );
-    });
+
+  it('then should be registered', async () => {
+    expect(await personalInformationPage.confirm()).toBe(
+      'Selenium - Automation Practice Form'
+    );
   });
 });
