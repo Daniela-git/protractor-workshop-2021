@@ -55,12 +55,13 @@ describe('Open the browser', () => {
           const paymentStepPage: PaymentStepPage = new PaymentStepPage();
           const bankPaymentPage: BankPaymentPage = new BankPaymentPage();
           const orderSummaryPage: OrderSummaryPage = new OrderSummaryPage();
-          it('then should be bought a t-shirt', async () => {
+          beforeEach(async () => {
             // payment step
             await paymentStepPage.selectPay();
             // bank
             await bankPaymentPage.confirmOrder();
-
+          });
+          it('then should be bought a t-shirt', async () => {
             await expect(orderSummaryPage.result()).toBe(
               'Your order on My Store is complete.'
             );
