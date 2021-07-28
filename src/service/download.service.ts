@@ -7,7 +7,7 @@ export class DownloadService {
     this.temp = resolve('temp');
   }
 
-  public async downloadFile(link: string, filename: string): Promise<void> {
+  public downloadFile(link: string, filename: string): void {
     const linkToUse: string = link.replace(/^data:image\/jpeg;base64,/, '');
     writeFileSync(resolve(this.temp, filename), linkToUse, 'base64');
   }
