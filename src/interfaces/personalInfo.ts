@@ -8,4 +8,5 @@ export interface PersonalInfo {
   continent: string;
   commands: string[];
   file: string;
+  downloadFile: boolean;
 }
