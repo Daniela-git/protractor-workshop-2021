@@ -25,6 +25,7 @@ describe('fill form', () => {
         'WebElement Commands',
       ],
       file: 'resources/git.jpeg',
+      downloadFile: true,
     });
     file = await personalInformationPage.getFiles();
     await personalInformationPage.submit();
