@@ -7,7 +7,7 @@ describe('fill form', () => {
   let file: string;
   beforeEach(async () => {
     await browser.get(
-      'https://www.tutorialspoint.com/selenium/selenium_automation_practice.htm '
+      'https://www.tutorialspoint.com/selenium/selenium_automation_practice.htm'
     );
     await personalInformationPage.fillForm({
       firstName: 'Alejandro',
