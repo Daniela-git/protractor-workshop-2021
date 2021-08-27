@@ -7,8 +7,9 @@
     "clean": "rm -rf dist awesome-report",
     "build": "npm run lint && npm run clean && tsc",
     "test:local": "npm run build && protractor dist/protractor/local.config.js",
-    "test": "npm run build && protractor dist/protractor/headless.config.js",
+    "test:headless": "npm run build && protractor dist/protractor/headless.config.js",
     "test:saucelabs": "npm run build && protractor dist/protractor/saucelabs.config.js",
+    "test": "npm run test:saucelabs",
     "webdriver:update": "webdriver-manager update --gecko false",
     "lint": "tslint --project tsconfig.json protractor/**/*.ts test/**/*.ts src/**/*.ts"
   },

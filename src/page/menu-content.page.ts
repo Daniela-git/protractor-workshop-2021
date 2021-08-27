@@ -1,4 +1,4 @@
-import { $, ElementFinder } from 'protractor';
+import { $, browser, ElementFinder, ExpectedConditions } from 'protractor';
 
 export class MenuContentPage {
   private tShirtMenu: ElementFinder;
@@ -10,6 +10,10 @@ export class MenuContentPage {
   }
 
   public async goToTShirtMenu(): Promise<void> {
+    await browser.wait(
+      ExpectedConditions.elementToBeClickable(this.tShirtMenu),
+      5000
+    );
     await this.tShirtMenu.click();
   }
 }
