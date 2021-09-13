@@ -9,8 +9,9 @@
     "test:local": "npm run build && protractor dist/protractor/local.config.js",
     "test:headless": "npm run build && protractor dist/protractor/headless.config.js",
     "test:saucelabs": "npm run build && protractor dist/protractor/saucelabs.config.js",
+    "test:zalenium": "npm run build && protractor dist/protractor/zalenium.config.js",
     "test": "npm run test:saucelabs",
-    "webdriver:update": "webdriver-manager update --gecko false",
+    "webdriver:update": "webdriver-manager update ",
     "lint": "tslint --project tsconfig.json protractor/**/*.ts test/**/*.ts src/**/*.ts"
   },
   "repository": {
